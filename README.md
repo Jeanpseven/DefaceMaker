@@ -1,2 +1,2 @@
 # DefaceMaker
-te ajuda a criar HTMLs
+te ajuda a criar defaces em HTML
