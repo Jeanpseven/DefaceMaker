@@ -10,6 +10,7 @@ estilo_texto = input("Digite o estilo do texto (por exemplo, 'bold', 'italic', '
 fonte = input("Digite o nome da fonte (por exemplo, 'Arial', 'Verdana'): ")
 cor_fundo = input("Digite a cor de fundo da página (em hexadecimal ou nome da cor): ")
 contato_anonimo = input("Digite a informação de contato anônimo: ")
+mensagem = input("Digite a mensagem a ser deixada na pagina: ")
 
 # Converte nomes de cores em códigos hexadecimais
 cores = {
@@ -36,29 +37,83 @@ if cor_fundo.lower() in cores:
 
 # Cria o conteúdo HTML da página
 html = f'''
+<!-- Generator by Nathan Prinsley - https://script-deface-generator.prinsh.com -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>{titulo}</title>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="{autor}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta property="og:title" content="{titulo}"/>
+    <meta name="keywords" content="{titulo}"/>
+    <meta property="og:image" content="{imagem}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Haxor Uploader"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{imagem}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.prinsh.com/NathanPrinsley-textstyle/nprinsh-stext.css"/>
     <style>
         body {{
-            background-image: url({background});
-            color: {cor_texto};
-            font-style: {estilo_texto};
+            background: {cor_fundo};
             font-family: {fonte};
-            background-color: {cor_fundo};
+            margin-top: 35px;
+        }}
+        h1, h2 {{
+            margin-top: .3em;
+            margin-bottom: .3em;
+        }}
+        h1.nprinsleyy {{
+            color: #dbd9d9;
+            font-size: 32px;
+        }}
+        h2 {{
+            color: #dbd9d9;
+            font-size: 10px;
+        }}
+        p.message_prinsley {{
+            color: #dbd9d9;
+            margin-top: .25em;
+            margin-bottom: .25em;
+            font-size: 16px;
+            font-weight: unset;
+        }}
+        .hubungi_prinsh {{
+            color: #00eb00;
+            text-decoration: none;
+        }}
+        .hubungi_prinsh:hover {{
+            color: red;
+        }}
+        .othermes_nprinsh {{
+            color: #dbd9d9;
+            font-size: 16px;
+        }}
+        marquee.foonathanPrinsley {{
+            display: none;
+            position: fixed;
+            width: 100%;
+            bottom: 0px;
+            font-family: Tahoma;
+            height: 20px;
+            color: white;
+            left: 0px;
+            border-top: 2px solid darkred;
+            padding: 5px;
+            background-color: #000;
         }}
     </style>
 </head>
 <body>
-    <h1>{titulo}</h1>
-    <p>Autor: {autor}</p>
-    <img src="{imagem}" alt="Imagem" />
-    <div>{conteudo}</div>
-    <p>Contato: {contato_anonimo}</p>
-    <audio controls>
-        <source src="{musica}" type="audio/mpeg">
-    </audio>
+    <center>
+        <img src="{imagem}" style="width: 20%">
+        <h1 class="nprinsleyy nprinsley-text-rainbowan">{titulo}</h1>
+        <h2>{autor}</h2>
+        <p class="message_prinsley">{mensagem}</p>
+        <p style="font-size: 20px;"><a class="hubungi_prinsh" href="mailto:">negociações em pplayboyyhacker@gmail.com</a></p>
+        <audio src="{musica}" autoplay="1" loop="1"></audio>
+        <marquee class="foonathanPrinsley"><b style="color: #dbd9d9; font-size: 16px;"></b></marquee>
+    </center>
 </body>
 </html>
 '''
